@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>عندي سؤال </title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Tahoma;
+    background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
+    text-align: center;
+    padding: 40px;
+}
+
+.box {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    max-width: 600px;
+    margin: auto;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 20px;
+    background: #ff4d6d;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #e63950;
+}
+
+.hidden {
+    display: none;
+}
+
+img {
+    width: 200px;
+    border-radius: 20px;
+    margin-top: 15px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<!-- السؤال 1 -->
+<div id="q1">
+<h2>عندي سؤال الج  </h2>
+<p>تحبيني هواي لو شوي؟ </p>
+<button onclick="next('q2')">احبك هواي</button>
+<button onclick="next('q2')">شوي</button>
+</div>
+
+<!-- السؤال 2 -->
+<div id="q2" class="hidden">
+<h2>زين سؤال ثاني </h2>
+<p>منو حبيبتي الصغيرة؟</p>
+<button onclick="next('q3')">اني  </button>
+<button onclick="next('q3')">هم اني</button>
+</div>
+
+<!-- السؤال 3 -->
+<div id="q3" class="hidden">
+<h2>آخر سؤال </h2>
+<p>جاهزة تشوفين شكد احبج؟</p>
+<button onclick="showFinal()">جاهزة</button>
+<button onclick="showFinal()">يلا بينا</button>
+</div>
+
+<!-- النتيجة النهائية -->
+<div id="final" class="hidden">
+<h2>To the prettiest girl ive ever seen  </h2>
+
+<img src="photo.jpg">
+
+<p>
+منايتي متدرين شلون احبج وشلون اشوف الدنيا كلها بعيونج , ما ادري شلون 
+  جنت محظوظ هلكد حتى احصل اجمل بنية بالدنيا كلها , 
+  محد مثلج يفهمني ويفسر كلامي مثل ما اني افهمه , كلما جاي نعيش يوم سوية 
+  اني وياج كلما جاي احبج اكثر .
+  اتمنى لو انت يمي هسة واكدر ابوسج من كل مكان بوجهج حتى اشوفج شلون احبج 
+  بالواقع مو بس حجي , انت تعنيلي كل شي بحياتي , اصلا حياتي بدت 
+  من عرفتج , بدونج عبالك حياتي ابيض واسود وبس دخلتيها تلونت بالوان لطافتج وكلامج 
+  الحلو الي , كل الي كتبته هو جزء بسيط من حبي الج وبس نلتقي راح تشوفين كل حبي
+
+  عمر
+</p>
+
+<button onclick="toggleMusic()">تشغيل / ايقاف الاغنية 🎵</button>
+
+</div>
+
+<audio id="music" loop>
+<source src="song.mp3" type="audio/mpeg">
+</audio>
+
+</div>
+
+<script>
+function next(nextId) {
+    var current = document.querySelector(".box > div:not(.hidden)");
+    current.classList.add("hidden");
+    document.getElementById(nextId).classList.remove("hidden");
+}
+
+function showFinal() {
+    var current = document.querySelector(".box > div:not(.hidden)");
+    current.classList.add("hidden");
+    document.getElementById("final").classList.remove("hidden");
+}
+
+function toggleMusic() {
+    var music = document.getElementById("music");
+    if (music.paused) {
+        music.play();
+    } else {
+        music.pause();
+    }
+}
+</script>
+
+</body>
+</html>
